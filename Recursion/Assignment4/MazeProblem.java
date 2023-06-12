@@ -1,5 +1,7 @@
 package Assignment4;
 
+import java.util.Scanner;
+
 // Print all possible paths from (0,0) to (n,n) when we have two moves Right and Down
 
 public class MazeProblem {
@@ -8,14 +10,16 @@ public class MazeProblem {
             System.out.println(curr);
             return;
         }
-        if(i>n)
-            return;
-        if(j>n)
+        if(i>n || j>n)
             return;
         solve(i+1,j,n,curr+"R");
         solve(i,j+1,n,curr+"D");
     }
     public static void main(String[] args) {
-        solve(0,0,3,"");
+        System.out.println("Enter the size of the grid");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        solve(0,0,n,"");
+        sc.close();
     }
 }
